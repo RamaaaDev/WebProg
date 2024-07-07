@@ -1,0 +1,41 @@
+{% load static %} 
+{% block content %} 
+{% if messages %}
+<div class="alert alert-success">
+  {% for message in messages %} <strong>{{ message }}</strong> {% endfor %}
+</div>
+{% endif %} 
+<a href="{% url 'apps:create-data-student' %}">Create</a>
+<table border="1">
+  <thead>
+    <tr>
+      <td>NIM</td>
+      <td>Nama</td>
+      <td>e-mail</td>
+      <td>Actions</td>
+    </tr>
+  </thead>
+  <tbody>
+    {% for obj in data_list%}
+    <tr>
+      <td>{{obj.account_user_student_number}}</td>
+      <td>{{obj.account_user_fullname}}</td>
+      <td>{{obj.account_user_related_user}}</td>
+      <td>
+        <a
+          href="{% url 'apps:update-data-student' obj.account_user_related_user %}">
+          Update
+        </a>
+        <br />
+        <a
+          href="{% url 'apps:delete-data-student' obj.account_user_related_user %}"
+          >Delete</a
+        >
+      </td>
+    </tr>
+    {% empty%}
+    <h1>Data masih kosong</h1>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

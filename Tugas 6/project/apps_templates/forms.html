@@ -1,0 +1,31 @@
+{% load static %} {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="main_business">
+      <div class="col-md-12">
+        {% if form.errors %}
+        <div class="alert alert-danger"><strong>{{form.errors}}</strong></div>
+        <br />
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+<form method="post" id="create-form" name="create-form">
+  {% csrf_token %}
+  <div>
+    <label>Input Nama Lengkap</label>
+    <input type="text" name="fullname" id="fullname" />
+  </div>
+  <div>
+    <label>Input NIM Lengkap</label> <input type="text" name="nim" id="nim" />
+  </div>
+  <div>
+    <label>Input Email Lengkap</label>
+    <input type="email" name="email" id="email" />
+  </div>
+  <div class="panel-footer text-center">
+    <button class="btn btn-primary m-top-20">Simpan</button>
+  </div>
+</form>
+{% endblock %}
