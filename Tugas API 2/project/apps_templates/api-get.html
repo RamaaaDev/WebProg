@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API GET Response</title>
+</head>
+<body>
+    {% load static %}
+    {% block content %}
+    {% if messages %}
+    <div class="alert alert-success">
+        {% for message in messages %}
+        <strong>{{ message }}</strong>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <a href="{% url 'apps:api-post' %}">Create</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for obj in data %}
+            <tr>
+                <td>{{ obj.id }}</td>
+                <td>{{ obj.name }}</td>
+                <td>{{ obj.username }}</td>
+                <td>{{ obj.email }}</td>
+                <td>{{ obj.phone }}</td>
+            </tr>
+            {% empty %}
+            <h1>Data masih kosong</h1>  
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock %}
+</body>
+</html>

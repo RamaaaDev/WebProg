@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulir API POST</title>
+</head>
+<body>
+    <h1>Kirim Data ke API</h1>
+    <form method="post" action="{% url 'apps:api-post' %}">
+        {% csrf_token %}
+        <label for="name">Nama:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="street">Jalan:</label>
+        <input type="text" id="street" name="street"><br>
+
+        <label for="suite">Suite:</label>
+        <input type="text" id="suite" name="suite"><br>
+
+        <label for="city">Kota:</label>
+        <input type="text" id="city" name="city"><br>
+
+        <label for="zipcode">Kode Pos:</label>
+        <input type="text" id="zipcode" name="zipcode"><br>
+
+        <label for="lat">Latitude:</label>
+        <input type="text" id="lat" name="lat"><br>
+
+        <label for="lng">Longitude:</label>
+        <input type="text" id="lng" name="lng"><br>
+
+        <label for="phone">Telepon:</label>
+        <input type="text" id="phone" name="phone"><br>
+
+        <label for="website">Situs Web:</label>
+        <input type="text" id="website" name="website"><br>
+
+        <label for="company_name">Nama Perusahaan:</label>
+        <input type="text" id="company_name" name="company_name"><br>
+
+        <label for="catchPhrase">Catch Phrase:</label>
+        <input type="text" id="catchPhrase" name="catchPhrase"><br>
+
+        <label for="bs">Strategi Bisnis:</label>
+        <input type="text" id="bs" name="bs"><br>
+
+        <input type="submit" value="Kirim">
+    </form>
+</body>
+</html>
